@@ -1,22 +1,17 @@
-def read_file_content(story):
-    text = open("story.txt", "r")
-    print ("Hello World")
-     
+def read_file_content (filename):
+    with open("story.txt", "r") as openfile:
+        readfile = openfile.read()
+        return readfile
 
-def count_words():
-    text = read_file_content("./story.txt" "r")
+def countwords ():
+    text = read_file_content("story.txt")
+    splitwords = text.split()
+    #print(splitwords)
 
-    d = dict()
-
-    for line in text:
-        line = line.strip()
-        line = line.lower()
-        words = line.split(" ")
-        for words in words:
-            if word in d:
-                d[word] = d[word] + 1
-            else:
-                    d[word] = 1
-
-                    for key in list(d.keys()):
-                        print(key, ":", d[key])
+    count = {}
+    for i in splitwords:
+        if i in count:
+            count[i] += 1
+        else:
+            count[i] = 1
+    return count
